@@ -1,0 +1,63 @@
+
+:root {
+  --colorWhite: #fff;
+  --colorRed: red;
+  --colorBlack: #000000;
+  --colorBlackAlpha6: rgba(0, 0, 0, 0.6);
+  --colorGrey4: #C4C4C4;
+  --colorGrey3: #F5F5F5;
+  --colorGrey2: #DCDCDC;
+  --colorGrey1: #757575;
+  --colorGrey5: #D7D7D7;
+  --colorGrey6: #949393;
+  --colorPrimary:black;
+  --colorOnPrimary: white;
+  --color: #C4C4C4;
+  --disabled: #959495;
+}
+
+* {
+  font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.primaryBgColor {
+  background-color:var(--colorPrimary);
+}
+.primaryColor {
+  color: var(--colorBlack);
+}
+.onSurfacePrimaryColor {
+  color: var(--colorOnPrimary);
+}
+
+.margin-bottom-1rem {
+  margin-bottom: 1rem;
+}
+
+.flex-column { 
+  display: flex;
+  flex-direction: column;
+}
+.horizontal-center {
+  justify-content: center;
+}
