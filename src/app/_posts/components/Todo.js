@@ -6,13 +6,13 @@ import "../post.css";
 
 export default function Todo({ title, body }) {
   return (
-    <Box className='post postPrimary'>
-      <Text type={"h2"} className={"margin-0 margin-bottom-1rem"}>
+      <tr className='postPrimary'>
+      <td><Text type={"p"} className={"margin-0 margin-bottom-1rem"}>
         {title}
-      </Text>
-      <Text type={"p"} className={"margin-0 postDescription"}>
+      </Text></td>
+      <td><Text type={"p"} className={"margin-0 postDescription margin-bottom-1rem"}>
         {body}
-      </Text>
-    </Box>
+      </Text></td>
+      </tr>
   );
 }

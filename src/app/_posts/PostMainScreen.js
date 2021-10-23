@@ -6,7 +6,7 @@ import "./post.css";
 
 export default function PostMainScreen() {
 
-  return (<Box className='postListContainer'>
+  return (<Box className='postMainContainer'>
     <PostList />
   </Box>
   );

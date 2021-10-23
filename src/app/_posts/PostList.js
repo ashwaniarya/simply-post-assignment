@@ -33,10 +33,10 @@ export default function PostList() {
   };
 
   const refetch = () => {
-    currentPageNumber.current = currentPageNumber.current + 1;
+    
     fetch({ page: currentPageNumber.current, reload: false }, (newCb) => {
       setPosts((existingPost) => {
-        return [...existingPost, ...newCb?.data];
+        return [...newCb?.data];
       });
     });
   };
@@ -50,25 +50,42 @@ export default function PostList() {
     if (!loading && !hasPost) {
       return <Text type={"h2"}>Your feed is empty</Text>;
     }
-
-    return posts.map((post) => {
+    return <table>
+      <tr style={{ position: 'sticky', top: 0}}><th>Title</th><th>Body</th></tr>
+      {posts.map((post) => {
       return <Post key={post.id} title={post.title} body={post.body} />;
-    });
+    })}</table>;
   };
 
-  const onClickLoadMore = () => {
-    if (!endReached.current) refetch();
+  const onClickLoadNext = () => {
+    if(!endReached.current){
+      currentPageNumber.current = currentPageNumber.current + 1;
+    }
+    refetch();
+  };
+
+  const onClickPrevious = () => {
+    if(currentPageNumber.current > 1){
+      currentPageNumber.current = currentPageNumber.current - 1;
+    }
+    refetch();
   };
 
   return (
-    <Box className="toastContainer">
+    <Box className="postListContainer">
+      <Box className="postList">
+      {loading && <Box>Loading...</Box>}
       {renderPost()}
-      <Box className={"flex-column"}>
-        {loading && <Box>Loading...</Box>}
-        {hasPost && (
+      </Box>
+      <Box className={"postListActions"}>
+        {hasPost && (<>
           <Box className='postLoadMoreBtn'>
-            <Button onClick={onClickLoadMore}>load more</Button>
+          <Button onClick={onClickPrevious} disabled={currentPageNumber.current === 1}>Prev Page</Button>
+        </Box>
+          <Box className='postLoadMoreBtn'>
+            <Button onClick={onClickLoadNext} disabled={endReached.current}>Next Page</Button>
           </Box>
+          </>
         )}
       </Box>
     </Box>
